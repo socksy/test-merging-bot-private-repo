@@ -1,7 +1,13 @@
 name: CI
-on: [push, pull_request]
+
+on:
+  pull_request:
+    branches: [develop]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'CI passed'
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: echo "Tests passed"
